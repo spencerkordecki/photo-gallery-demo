@@ -1,10 +1,15 @@
 .Gallery {
+  display: flex;
+  justify-content: center;
+}
+
+.Gallery-images {
   list-style-type: none;
   margin: 0;
   padding: 0;
 }
 
-.Gallery-Item {
+.Gallery-item {
   margin: 0;
   padding: 0;
 }
