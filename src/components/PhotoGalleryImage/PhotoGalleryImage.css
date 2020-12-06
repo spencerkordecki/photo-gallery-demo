@@ -6,15 +6,26 @@
 /* Styling Classes */
 .photo {
   position: relative;
+  cursor: pointer;
+}
+
+.photo__image {
+  width: 100%;
 }
 
 .photo__caption {
   position: absolute;
-  bottom: 0;
+  bottom: 4px;
   width: 100%;
   background-color: rgb(53, 53, 53);
   color: white;
   margin: 0;
   padding: 1rem 0;
   opacity: 0.6;
+}
+
+@media screen and (min-width: 768px) {
+  .photo {
+    cursor: default;
+  }
 }

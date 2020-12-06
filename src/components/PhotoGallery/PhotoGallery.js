@@ -71,24 +71,38 @@ class PhotoGallery extends React.Component {
 
   render() {
     return (
-      <div className="Gallery">
-        <button className="Gallery-button" onClick={this.handlePreviousClick}>
-          Prev
+      <div
+        className="gallery"
+        onTouchStart={this.handleTouchStart}
+        onTouchEnd={this.handleTouchEnd}
+      >
+        <button
+          className="gallery__button gallery__button--prev"
+          onClick={this.handlePreviousClick}
+          aria-label="Display Previous Photo"
+        >
+          ◀
         </button>
-        <ul className="Gallery-images">
+        <ul className="gallery__images">
           {images.map((image, index) => {
             return (
-              <li className="Gallery-item" key={index}>
+              <li className="gallery__item" key={index}>
                 <PhotoGalleryImage
                   image={image}
                   isActive={this.state.activeIndex === index}
+                  setNextPhotoActive={this.setNextPhotoActive}
+                  setPreviousPhotoActive={this.setPreviousPhotoActive}
                 ></PhotoGalleryImage>
               </li>
             );
           })}
         </ul>
-        <button className="Gallery-button" onClick={this.handleNextClick}>
-          Next
+        <button
+          className="gallery__button gallery__button--next"
+          onClick={this.handleNextClick}
+          aria-label="Display Next Photo"
+        >
+          ▶
         </button>
       </div>
     );

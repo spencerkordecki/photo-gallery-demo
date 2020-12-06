@@ -1,15 +1,39 @@
-.Gallery {
+.gallery {
   display: flex;
   justify-content: center;
+  width: 100%;
+  overflow: hidden;
+  position: relative;
 }
 
-.Gallery-images {
+.gallery__button {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  z-index: 1;
+  border: none;
+  background: transparent;
+  color: white;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.gallery__button--prev {
+  left: 0;
+}
+
+.gallery__button--next {
+  right: 0;
+}
+
+.gallery__images {
   list-style-type: none;
   margin: 0;
   padding: 0;
+  width: 100%;
 }
 
-.Gallery-item {
+.gallery__item {
   margin: 0;
   padding: 0;
 }
