@@ -1,0 +1,10 @@
+.Gallery {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.Gallery-Item {
+  margin: 0;
+  padding: 0;
+}
