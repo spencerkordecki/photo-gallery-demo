@@ -1,18 +1,24 @@
 import './PhotoGalleryImage.css';
 
 function PhotoGalleryImage(props) {
-  let className = 'Gallery-image';
+  const captionText = `${props.image.description} by ${props.image.author}`;
+  let imageClassName = 'photo__image';
+  let captionClassName = 'photo__caption';
 
   if (!props.isActive) {
-    className = `${className} hidden`;
+    imageClassName = `${imageClassName} hidden`;
+    captionClassName = `${captionClassName} hidden`;
   }
 
   return (
-    <img
-      className={className}
-      src={props.image.path}
-      alt={props.image.description}
-    ></img>
+    <article className="photo">
+      <img
+        className={imageClassName}
+        src={props.image.path}
+        alt={props.image.alt}
+      ></img>
+      <p className={captionClassName}>{captionText}</p>
+    </article>
   );
 }
 
