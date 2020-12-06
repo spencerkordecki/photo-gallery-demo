@@ -4,18 +4,28 @@
   width: 100%;
   overflow: hidden;
   position: relative;
+  margin: 1rem;
 }
 
 .gallery__button {
   position: absolute;
-  top: 0;
-  bottom: 0;
+  top: 40%;
+  bottom: 40%;
   z-index: 1;
   border: none;
   background: transparent;
   color: white;
   font-size: 1rem;
   cursor: pointer;
+  opacity: 0.6;
+  border: 1px solid transparent;
+  transition: all 0.4s ease-in-out;
+}
+
+.gallery__button:hover,
+.gallery__button:focus {
+  background-color: rgb(53, 53, 53);
+  border: 1px solid white;
 }
 
 .gallery__button--prev {
@@ -31,9 +41,16 @@
   margin: 0;
   padding: 0;
   width: 100%;
+  overflow: hidden;
 }
 
 .gallery__item {
   margin: 0;
   padding: 0;
+}
+
+@media screen and (min-width: 768px) {
+  .gallery {
+    max-width: 800px;
+  }
 }

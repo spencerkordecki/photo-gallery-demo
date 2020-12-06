@@ -1,15 +1,15 @@
 import './PhotoGalleryImage.css';
 
 function PhotoGalleryImage(props) {
-  const captionText = `${props.image.description} by ${props.image.author}`;
-  let imageClassName = 'photo__image';
+  const captionText = `"${props.image.description}" by ${props.image.author}`;
+  let photoClassName = 'photo';
   let captionClassName = 'photo__caption';
   let touchstartX = 0;
   let touchendX = 0;
 
   // Hide all images and captions that are not currently active
   if (!props.isActive) {
-    imageClassName = `${imageClassName} hidden`;
+    photoClassName = `${photoClassName} hidden`;
     captionClassName = `${captionClassName} hidden`;
   }
 
@@ -42,9 +42,9 @@ function PhotoGalleryImage(props) {
   };
 
   return (
-    <article className="photo">
+    <article className={photoClassName}>
       <img
-        className={imageClassName}
+        className="photo__image"
         src={props.image.path}
         alt={props.image.alt}
         onTouchStart={handleTouchStart}

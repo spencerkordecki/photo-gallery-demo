@@ -19,6 +19,9 @@ class PhotoGallery extends React.Component {
 
     this.setPreviousPhotoActive = this.setPreviousPhotoActive.bind(this);
     this.setNextPhotoActive = this.setNextPhotoActive.bind(this);
+
+    this.previousButton = React.createRef();
+    this.nextButton = React.createRef();
   }
 
   /**
@@ -27,15 +30,21 @@ class PhotoGallery extends React.Component {
    * active photo to the last photo in the array.
    */
   setPreviousPhotoActive() {
+    let newIndex;
     if (this.state.activeIndex === 0) {
-      this.setState({
-        activeIndex: images.length - 1
-      });
+      newIndex = images.length - 1;
     } else {
-      this.setState({
-        activeIndex: this.state.activeIndex - 1
-      });
+      newIndex = this.state.activeIndex - 1;
     }
+
+    this.setState(
+      {
+        activeIndex: newIndex
+      },
+      () => {
+        this.previousButton.current.disabled = false;
+      }
+    );
   }
 
   /**
@@ -44,28 +53,40 @@ class PhotoGallery extends React.Component {
    * active photo to the first photo in the array.
    */
   setNextPhotoActive() {
+    let newIndex;
     if (this.state.activeIndex === images.length - 1) {
-      this.setState({
-        activeIndex: 0
-      });
+      newIndex = 0;
     } else {
-      this.setState({
-        activeIndex: this.state.activeIndex + 1
-      });
+      newIndex = this.state.activeIndex + 1;
     }
+
+    this.setState(
+      {
+        activeIndex: newIndex
+      },
+      () => {
+        this.nextButton.current.disabled = false;
+      }
+    );
   }
 
   /**
-   * Display the previous photo in the gallery.
+   * Display the previous photo in the gallery and disable
+   * the previous photo button to prevent spam clicking the
+   * component into an inaccurate state.
    */
   handlePreviousClick() {
+    this.previousButton.current.disabled = true;
     this.setPreviousPhotoActive();
   }
 
   /**
-   * Display the next photo in the gallery.
+   * Display the next photo in the gallery and disable
+   * the next photo button to prevent spam clicking the
+   * component into an inaccurate state.
    */
   handleNextClick() {
+    this.nextButton.current.disabled = true;
     this.setNextPhotoActive();
   }
 
@@ -80,6 +101,7 @@ class PhotoGallery extends React.Component {
           className="gallery__button gallery__button--prev"
           onClick={this.handlePreviousClick}
           aria-label="Display Previous Photo"
+          ref={this.previousButton}
         >
           ◀
         </button>
@@ -101,6 +123,7 @@ class PhotoGallery extends React.Component {
           className="gallery__button gallery__button--next"
           onClick={this.handleNextClick}
           aria-label="Display Next Photo"
+          ref={this.nextButton}
         >
           ▶
         </button>
