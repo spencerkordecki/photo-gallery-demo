@@ -107,7 +107,7 @@ class PhotoGallery extends React.Component {
           aria-label="Display Previous Photo"
           ref={this.previousButton}
         >
-          ◀
+          {'<'}
         </button>
         <ul className="gallery__images">
           {images.map((image, index) => {
@@ -129,7 +129,7 @@ class PhotoGallery extends React.Component {
           aria-label="Display Next Photo"
           ref={this.nextButton}
         >
-          ▶
+          {'>'}
         </button>
       </div>
     );
