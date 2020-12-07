@@ -25,9 +25,9 @@ function PhotoGalleryImage(props) {
   /**
    * Set the end X axis value when the user is finished swiping. If
    * the end value is less than the start value, the user has swiped
-   * left and the next photo is displayed. If the end valud is greater
-   * than the start value, the user has swiped right and the previous
-   * photo is displayed.
+   * left and the next photo will be displayed. If the end value is
+   * greater than the start value, the user has swiped right and the
+   * previous photo will be displayed.
    *
    * @param {Object} e TouchEvent
    */

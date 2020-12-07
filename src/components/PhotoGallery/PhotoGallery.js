@@ -1,11 +1,13 @@
 import './PhotoGallery.css';
 import React from 'react';
-import images from '../../carouselImages.js';
+import images from '../../galleryImages.js';
 import PhotoGalleryImage from '../PhotoGalleryImage/PhotoGalleryImage.js';
 
 /**
- * Renders the images from carouselImages.js and handles clicks on the
- * next and previous buttons to advance the slides.
+ * Component that takes in an array of images from galleryImages.js and
+ * displays them in a slider that has the ability to move to the next
+ * or previous image by clicking the appropriate button or swiping left/right
+ * on mobile.
  */
 class PhotoGallery extends React.Component {
   constructor(props) {
@@ -16,7 +18,6 @@ class PhotoGallery extends React.Component {
 
     this.handlePreviousClick = this.handlePreviousClick.bind(this);
     this.handleNextClick = this.handleNextClick.bind(this);
-
     this.setPreviousPhotoActive = this.setPreviousPhotoActive.bind(this);
     this.setNextPhotoActive = this.setNextPhotoActive.bind(this);
 
@@ -25,18 +26,20 @@ class PhotoGallery extends React.Component {
   }
 
   /**
-   * Checks the current active index and sets the index to the photo
-   * currently active minus 1. If the new index is out of range, set the
-   * active photo to the last photo in the array.
+   * Checks the current active index and sets the index to (current - 1).
+   * If the new index is out of range, set the active photo to the last
+   * photo in the array.
    */
   setPreviousPhotoActive() {
     let newIndex;
+
     if (this.state.activeIndex === 0) {
       newIndex = images.length - 1;
     } else {
       newIndex = this.state.activeIndex - 1;
     }
 
+    // Update the currently active photo and enable the previous button
     this.setState(
       {
         activeIndex: newIndex
@@ -48,9 +51,9 @@ class PhotoGallery extends React.Component {
   }
 
   /**
-   * Checks the current active index and sets the index to the photo
-   * currently active plus 1. If the new index is out of range, set the
-   * active photo to the first photo in the array.
+   * Checks the current active index and sets the index to (current + 1).
+   * If the new index is out of range, set the active photo to the first
+   * photo in the array.
    */
   setNextPhotoActive() {
     let newIndex;
@@ -60,6 +63,7 @@ class PhotoGallery extends React.Component {
       newIndex = this.state.activeIndex + 1;
     }
 
+    // Update the currently active photo and enable the next button
     this.setState(
       {
         activeIndex: newIndex
