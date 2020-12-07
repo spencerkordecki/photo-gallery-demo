@@ -1,6 +1,10 @@
-# Getting Started with Create React App
+# React Carousel Demo
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+
+A sample project of a small, responsive slider built with React.js. On desktop, the user can use the previous and next buttons to advance the slides and on mobile, the user can swipe left and right to
+change the current slide. This demo uses a hardcoded set of data in `galleryImages.js`, but could
+be easily repurposed to get data from an external source.
 
 ## Available Scripts
 
